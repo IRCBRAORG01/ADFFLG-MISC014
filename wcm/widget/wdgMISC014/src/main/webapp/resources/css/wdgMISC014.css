@@ -1,0 +1,347 @@
+/* ── Copa do Mundo 2026 – tema claro ───────────────────────────────────────── */
+
+.copa-root {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    color: #1e293b;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+
+.copa-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.copa-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.copa-date-display {
+    color: #64748b;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+/* ── Date nav ──────────────────────────────────────────────────────────────── */
+
+.copa-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.copa-btn-nav {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.copa-btn-nav:hover {
+    background: #e2e8f0;
+}
+
+.copa-date-input {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.82rem;
+    color: #1e293b;
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ── Loading ───────────────────────────────────────────────────────────────── */
+
+.copa-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 40px 16px;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.copa-spinner {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #e2e8f0;
+    border-top-color: #c1121f;
+    border-radius: 50%;
+    animation: copa-spin 0.75s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes copa-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Content ───────────────────────────────────────────────────────────────── */
+
+.copa-content {
+    padding: 14px;
+}
+
+/* ── Group section ─────────────────────────────────────────────────────────── */
+
+.copa-group {
+    margin-bottom: 18px;
+}
+
+.copa-group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.copa-group-tag {
+    background: #c1121f;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.copa-group-meta {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+/* ── Match card ────────────────────────────────────────────────────────────── */
+
+.copa-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+}
+
+.copa-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.copa-time {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.copa-group-inline {
+    margin-left: auto;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+/* ── Status badges ─────────────────────────────────────────────────────────── */
+
+.copa-badge {
+    font-size: 0.67rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.badge-gray   { background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1; }
+.badge-green  { background: #dcfce7; color: #15803d; border: 1px solid #86efac; animation: copa-pulse 1.6s ease-in-out infinite; }
+.badge-yellow { background: #fef9c3; color: #a16207; border: 1px solid #fde047; }
+.badge-blue   { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+
+@keyframes copa-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.55; }
+}
+
+/* ── Matchup row ───────────────────────────────────────────────────────────── */
+
+.copa-matchup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.copa-side {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.copa-home { flex-direction: row; }
+.copa-away { flex-direction: row-reverse; }
+
+.copa-home .copa-team-name { text-align: left; }
+.copa-away .copa-team-name { text-align: right; }
+
+.copa-crest {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 2px;
+}
+
+.copa-crest-fb {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.copa-team-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+
+/* ── Score / time center ───────────────────────────────────────────────────── */
+
+.copa-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 80px;
+}
+
+.copa-score {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
+}
+
+.copa-score-sep {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.copa-score-ht {
+    color: #94a3b8;
+    font-size: 0.62rem;
+    margin-top: 3px;
+    white-space: nowrap;
+}
+
+.copa-score-time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #475569;
+    letter-spacing: 1px;
+}
+
+/* ── Empty / Error ─────────────────────────────────────────────────────────── */
+
+.copa-empty,
+.copa-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 40px 16px;
+    text-align: center;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.copa-error { color: #b91c1c; }
+
+.copa-error-code {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.68rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 4px;
+    padding: 6px 10px;
+    word-break: break-all;
+    color: #991b1b;
+}
+
+.copa-btn-retry {
+    margin-top: 4px;
+    background: #fff;
+    border: 1px solid #fca5a5;
+    color: #b91c1c;
+    border-radius: 6px;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.15s;
+}
+
+.copa-btn-retry:hover {
+    background: #fef2f2;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+    .copa-team-name { max-width: 80px; font-size: 0.78rem; }
+    .copa-score     { font-size: 1.2rem; }
+    .copa-crest, .copa-crest-fb { width: 26px; height: 26px; }
+    .copa-center    { min-width: 60px; }
+    .copa-header    { flex-direction: column; align-items: flex-start; }
+}
