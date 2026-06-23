@@ -81,11 +81,12 @@ function createDataset(fields, constraints, sortFields) {
         var cacheKey  = 'copa2026_' + dateFrom + '_' + dateTo + '.json';
         var cacheFile = new java.io.File(tempDir + sep + cacheKey);
 
-        // Dias passados: cache de 24h. Dia atual/futuro: cache de 10 min.
+        // Dias passados: cache de 24h. Dia atual/futuro: cache de 30s (placar ao vivo).
         var today     = new java.text.SimpleDateFormat('yyyy-MM-dd').format(new java.util.Date());
-        var cacheTTL  = (dateFrom < String(today)) ? (24 * 60 * 60 * 1000) : (10 * 60 * 1000);
+        var cacheTTL  = (dateTo < String(today)) ? (24 * 60 * 60 * 1000) : (30 * 1000);
         var responseBody = null;
         var fromCache = false;
+        var hApiVersion = '', hAuthClient = '', hReqReset = '', hReqAvail = '';
 
         if (cacheFile.exists()) {
             var cacheAge = java.lang.System.currentTimeMillis() - cacheFile.lastModified();
@@ -111,6 +112,10 @@ function createDataset(fields, constraints, sortFields) {
             conn.connect();
 
             var httpStatus = conn.getResponseCode();
+            hApiVersion = String(conn.getHeaderField('X-API-Version')               || '');
+            hAuthClient = String(conn.getHeaderField('X-Authenticated-Client')      || '');
+            hReqReset   = String(conn.getHeaderField('X-RequestCounter-Reset')      || '');
+            hReqAvail   = String(conn.getHeaderField('X-Requests-Available-Minute') || '');
 
             var stream = (httpStatus >= 400) ? conn.getErrorStream() : conn.getInputStream();
             if (stream == null) {
@@ -144,7 +149,9 @@ function createDataset(fields, constraints, sortFields) {
         var matches = data.matches || [];
 
         dataset.addRow(['DIAG', fromCache ? 'CACHE' : '200', String(matches.length), apiUrl, '',
-            responseBody.substring(0, 150), '', '', '', '', '', '', '', '', '']);
+            responseBody.substring(0, 150),
+            hReqAvail, hReqReset, hAuthClient, hApiVersion,
+            '', '', '', '', '']);
 
         for (var m = 0; m < matches.length; m++) {
             var match = matches[m];

@@ -17,67 +17,63 @@
 .copa-header {
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
-    padding: 14px 18px;
+    padding: 0 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+    min-height: 36px;
 }
 
 .copa-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #94a3b8;
     margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.copa-date-display {
-    color: #64748b;
-    font-size: 0.8rem;
-    text-transform: capitalize;
-}
-
-/* ── Date nav ──────────────────────────────────────────────────────────────── */
-
-.copa-nav {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.copa-btn-nav {
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    color: #475569;
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
     line-height: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: background 0.15s;
+    gap: 4px;
+    letter-spacing: 0.2px;
 }
 
-.copa-btn-nav:hover {
-    background: #e2e8f0;
+/* ── Tabs ──────────────────────────────────────────────────────────────────── */
+
+.copa-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.copa-date-input {
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-size: 0.82rem;
-    color: #1e293b;
-    background: #ffffff;
-    outline: none;
+.copa-tab {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.4;
     cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.copa-tab:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #334155;
+}
+
+.copa-tab-active {
+    background: #e2e8f0;
+    color: #334155;
+    border-color: #cbd5e1;
+}
+
+.copa-tab-active:hover {
+    background: #d4dce8;
+    border-color: #b6c2d0;
 }
 
 /* ── Loading ───────────────────────────────────────────────────────────────── */
@@ -137,6 +133,10 @@
     white-space: nowrap;
 }
 
+.copa-brazil-tag {
+    background: #009c3b;
+}
+
 .copa-group-meta {
     color: #64748b;
     font-size: 0.75rem;
@@ -152,6 +152,17 @@
     margin-bottom: 8px;
 }
 
+.copa-brazil-home,
+.copa-brazil-away {
+    border-left: 3px solid #009c3b;
+    background: #f0fdf4;
+}
+
+.copa-brazil-home .copa-home .copa-team-name,
+.copa-brazil-away .copa-away .copa-team-name {
+    color: #15803d;
+}
+
 .copa-card-top {
     display: flex;
     align-items: center;
@@ -162,13 +173,6 @@
 .copa-time {
     color: #64748b;
     font-size: 0.75rem;
-}
-
-.copa-group-inline {
-    margin-left: auto;
-    color: #94a3b8;
-    font-size: 0.7rem;
-    white-space: nowrap;
 }
 
 /* ── Status badges ─────────────────────────────────────────────────────────── */
@@ -307,18 +311,6 @@
 }
 
 .copa-error { color: #b91c1c; }
-
-.copa-error-code {
-    display: block;
-    margin-top: 8px;
-    font-size: 0.68rem;
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    border-radius: 4px;
-    padding: 6px 10px;
-    word-break: break-all;
-    color: #991b1b;
-}
 
 .copa-btn-retry {
     margin-top: 4px;

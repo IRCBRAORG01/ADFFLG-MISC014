@@ -1,11 +1,10 @@
 <div id="wdgMISC014_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide copa-root" data-params="WdgMISC014.instance()">
 
     <div class="copa-header">
-        <h2 class="copa-title">&#9917; Copa do Mundo 2026</h2>
-        <div class="copa-nav">
-            <button class="copa-btn-nav" id="btnPrev_${instanceId}">&#8249;</button>
-            <input type="date" id="datePicker_${instanceId}" class="copa-date-input" />
-            <button class="copa-btn-nav" id="btnNext_${instanceId}">&#8250;</button>
+        <h2 class="copa-title">&#9917; Copa 2026</h2>
+        <div class="copa-tabs">
+            <button class="copa-tab copa-tab-active" id="tabBrasil_${instanceId}">🇧🇷 Brasil</button>
+            <button class="copa-tab" id="tabHoje_${instanceId}">Hoje</button>
         </div>
     </div>
 
@@ -18,7 +17,7 @@
 
     <div id="copaEmpty_${instanceId}" class="copa-empty" style="display:none;">
         <span>&#128197;</span>
-        <span>Nenhum jogo para esta data.</span>
+        <span id="copaEmptyMsg_${instanceId}">Nenhum jogo encontrado.</span>
     </div>
 
     <div id="copaError_${instanceId}" class="copa-error" style="display:none;">
